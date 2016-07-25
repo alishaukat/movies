@@ -19,7 +19,9 @@ class MoviesController extends Controller
             'limit'         => 8,
             'offset'        => 0,
             'order_by'      => 'title',
-            'order_by_type' => 'asc'            
+            'order_by_type' => 'asc',
+//            'type'          => 'title',
+//            'search'        => 'Agn'
         ];
 
         $movies = Movie::getAll($filters);
@@ -27,6 +29,12 @@ class MoviesController extends Controller
         return view('movies', compact('movies_list'));
     }
 
+    /**
+     * Returns a list of movies with ajax
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
     public function listing(Request $request){
         $filters    = $request->all();
         $movies     = Movie::getAll($filters);
@@ -34,25 +42,6 @@ class MoviesController extends Controller
         $response   = [
             'status'=> 'success',
             'data'  => $movies_list->render()
-        ];
-        return json_encode($response);
-    }
-    
-    /**
-     * Returns a list of movies with ajax
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function ajaxListing()
-    {
-        $filters    = $request->all();
-        dd($filters);
-        $movies     = Movie::getAll($filters);
-        $movies_list= view('partials.movies_list', compact('movies'));
-        $response   = [
-            'status'=> 'success',
-            'data'  => $movies_list
         ];
         return json_encode($response);
     }

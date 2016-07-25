@@ -50,14 +50,14 @@ class Movie extends Model
             
         } else {
             
-            if(!empty($filters['type']) == 'title'){
+            if(!empty($filters['type']) && $filters['type'] == 'title'){
                 $movies = $movies->where('title', 'like', "%".trim($filters['search'])."%");
             }
-            if(!empty($filters['type']) == 'genre'){
+            if(!empty($filters['type']) && $filters['type'] == 'genre'){
                 $movies = $movies->where('genre', 'like', "%".trim($filters['search'])."%");
             }
-            if(!empty($filters['type']) == 'rating'){
-                $movies = $movies->where('rating', '=', trim($filters['search']));
+            if(!empty($filters['type']) && $filters['type'] == 'rating'){
+                $movies = $movies->where('rating', 'like', "%".trim($filters['search'])."%");
             }            
         }
         return $movies;

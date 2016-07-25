@@ -18,9 +18,11 @@
         </p>
     </div>
 </div>
-<iframe width="640" height="360"
-    src="{{ $movie->video_url }}">
-</iframe>
+<div class="row vid">
+    <iframe width="640" height="360"
+        src="{{ $movie->video_url }}">
+    </iframe>
+</div>
 <hr>
 @endsection
 

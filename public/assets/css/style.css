@@ -13,7 +13,10 @@
     margin-left: 48%;
     display: none;
 }
-
+.vid{
+    margin-top: 50px;
+    text-align: center;
+}
 @media (min-width: 992px){
     .portfolio-item {
         height: 350px;

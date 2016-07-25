@@ -21,7 +21,7 @@ class MoviesTableSeeder extends Seeder
                 'summary'      => $faker->text(rand(100,1000)),
                 'url'          => $faker->slug,
                 'image_url'    => "http://placehold.it/700x400",
-                'video_url'    => "https://youtu.be/s7L2PVdrb_8",
+                'video_url'    => "http://www.sample-videos.com/video/mp4/720/big_buck_bunny_720p_50mb.mp4",
                 'created_at'   => date("Y-m-d H:i:s", rand(1464199495,time())),
                 'updated_at'   => date('Y-m-d H:i:s')
             ]);

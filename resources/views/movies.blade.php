@@ -65,6 +65,7 @@ $(document).ready(function(e){
         if ((window.loadingInProgress === true)) {
             return false;
         };
+        window.fetchAgain = true;
         clearTimeout(delayTimer);
         delayTimer = setTimeout(function() {
             loadMovies(true);
@@ -106,12 +107,14 @@ function loadMovies(emptyList){
                 if ( emptyList === true ) {
                     $('.movies-container').empty();
                 }
-                $('.movies-container').append(data);
-
                 if($.trim(data) === ""){
+                    if(emptyList){
+                        $('.movies-container').append("<div>No Movies Found</div>");
+                    }
                     window.fetchAgain = false;
                 }else{
-                    window.fetchAgain = true;                
+                    $('.movies-container').append(data);
+                    window.fetchAgain = true;
                 }
             }
         },error: function() {

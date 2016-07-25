@@ -21,7 +21,10 @@ class CreateMoviesTable extends Migration
             $table->string('url')->nullable();
             $table->string('image_url')->nullable();
             $table->string('video_url')->nullable();
-            $table->index(['title', 'genre', 'rating', 'url']);
+            $table->index('title');
+            $table->index('genre');
+            $table->index('rating');
+            $table->index('url');
             $table->timestamps();
         });
     }

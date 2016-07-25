@@ -11,6 +11,7 @@
 |
 */
 
-Route::get('/', function () {
-    return view('sample');
-});
+
+Route::get('/', ['as' => 'home', 'uses'=>'MoviesController@index']);
+Route::get('/{url}', ['as' => 'movie', 'uses'=>'MoviesController@show']);
+Route::get('/listing', ['as' => 'movie.listing', 'uses'=>'MoviesController@listing']);

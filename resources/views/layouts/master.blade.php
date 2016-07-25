@@ -22,8 +22,7 @@
     <body>
             @include('layouts.includes.nav')
             <!-- Page Content -->
-            <div class="container">
-                @include('layouts.includes.header')
+            <div class="container">                
                 @yield('content')
                 @include('layouts.includes.footer')
             </div>

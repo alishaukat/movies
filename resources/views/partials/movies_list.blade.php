@@ -21,7 +21,7 @@ $total = count($movies);
                 Not Rated
                 @endif
             </strong>
-            <p>{{ str_limit($movie->summary, rand(50, 130)) }}</p>
+            <p>{{ str_limit($movie->summary, 130) }}</p>
         </div>
         <a href="{{ route('movie', $movie->url) }}">
             <img class="img-responsive" src="{{ $movie->image_url }}" alt="Movie Image">

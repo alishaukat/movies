@@ -52,9 +52,13 @@ class MoviesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($url)
     {
-        //
+        $movie = Movie::where('url', $url)->first();
+        if(empty($movie)){
+            abort(404, 'Invalid URL');
+        }
+        return view('movie_detail', compact('movie'));
     }
     
 }

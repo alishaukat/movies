@@ -13,5 +13,5 @@
 
 
 Route::get('/', ['as' => 'home', 'uses'=>'MoviesController@index']);
+Route::get('/listing', ['as' => 'listing', 'uses'=>'MoviesController@listing']);
 Route::get('/{url}', ['as' => 'movie', 'uses'=>'MoviesController@show']);
-Route::get('/listing', ['as' => 'movie.listing', 'uses'=>'MoviesController@listing']);

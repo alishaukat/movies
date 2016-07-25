@@ -6,6 +6,13 @@
 .movies-container{
     margin-top: 20px;
 }
+.loading{
+    background: url('../img/loading.gif') no-repeat;
+    width: 100%;
+    float: left;
+    margin-left: 48%;
+    display: none;
+}
 
 @media (min-width: 992px){
     .portfolio-item {

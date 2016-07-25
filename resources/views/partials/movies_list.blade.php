@@ -1,7 +1,11 @@
-<?php $counter = 1; $totalMovies = count($movies); ?>
+<?php 
+$index = 0; 
+$counter = 0;
+$total = count($movies);
+?>
 @foreach($movies as $movie)
 
-@if( $counter%4 == 0 || $counter == 1)
+@if(++$index == 1)
 <!-- Movie Row -->
 <div class="row">
 @endif
@@ -17,13 +21,14 @@
                 Not Rated
                 @endif
             </strong>
-            <p>{{ str_limit($movie->summary, rand(50, 150)) }}</p>
+            <p>{{ str_limit($movie->summary, rand(50, 130)) }}</p>
         </div>
         <a href="{{ route('movie', $movie->url) }}">
             <img class="img-responsive" src="{{ $movie->image_url }}" alt="Movie Image">
         </a>
     </div>
-@if( $counter % 4 == 0 || $counter == $totalMovies)
+@if($index == 4 && $total != $counter)
+<?php $index=0; ?>
 </div>
 <!-- /.row -->
 @endif

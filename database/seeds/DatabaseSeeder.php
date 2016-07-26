@@ -16,7 +16,10 @@ class DatabaseSeeder extends Seeder
 
         // $this->call(UserTableSeeder::class);
         $this->call(MoviesTableSeeder::class);
-
+        $this->call(SeriesTableSeeder::class);
+        $this->call(SeasonsTableSeeder::class);
+        $this->call(EpisodesTableSeeder::class);
+        
         Model::reguard();
     }
 }

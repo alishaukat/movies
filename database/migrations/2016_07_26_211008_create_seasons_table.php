@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateMoviesTable extends Migration
+class CreateSeasonsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -12,8 +12,9 @@ class CreateMoviesTable extends Migration
      */
     public function up()
     {
-        Schema::create('movies', function (Blueprint $table) {
+        Schema::create('seasons', function (Blueprint $table) {
             $table->increments('id');
+            $table->integer('series_id')->unsigned();
             $table->string('title');
             $table->string('genre')->nullable();
             $table->decimal('rating',5,2)->nullable();
@@ -25,6 +26,7 @@ class CreateMoviesTable extends Migration
             $table->index('genre');
             $table->index('rating');
             $table->index('url');
+            $table->foreign('series_id')->references('id')->on('series');
             $table->timestamps();
             $table->softDeletes();
         });
@@ -37,6 +39,6 @@ class CreateMoviesTable extends Migration
      */
     public function down()
     {
-        Schema::drop('movies');
+        Schema::drop('seasons');
     }
 }

@@ -3,13 +3,13 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Movie;
+use App\Models\Series;
 use App\Http\Controllers\Controller;
 
-class MoviesController extends Controller
+class SeriesController extends Controller
 {
     /**
-     * Display a listing of the movies.
+     * Display a listing of the series.
      *
      * @return \Illuminate\Http\Response
      */
@@ -19,44 +19,46 @@ class MoviesController extends Controller
             'limit'         => 8,
             'offset'        => 0,
             'order_by'      => 'title',
-            'order_by_type' => 'asc'
+            'order_by_type' => 'asc',
+//            'type'          => 'title',
+//            'search'        => 'Agn'
         ];
 
-        $movies = Movie::getAll($filters);
-        $movies_list = view('partials.movies_list', compact('movies'));
-        return view('movies', compact('movies_list'));
+        $series = Series::getAll($filters);
+        $series_list = view('partials.series_list', compact('series'));
+        return view('series', compact('series_list'));
     }
 
     /**
-     * Returns a list of movies with ajax
+     * Returns a list of series with ajax
      *
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
     public function listing(Request $request){
         $filters    = $request->all();
-        $movies     = Movie::getAll($filters);
-        $movies_list= view('partials.movies_list', compact('movies'));
+        $series     = Series::getAll($filters);
+        $series_list= view('partials.series_list', compact('series'));
         $response   = [
             'status'=> 'success',
-            'data'  => $movies_list->render()
+            'data'  => $series_list->render()
         ];
         return json_encode($response);
     }
 
     /**
-     * Display the specified movie.
+     * Display the specified series.
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
     public function show($url)
     {
-        $movie = Movie::where('url', $url)->first();
-        if(empty($movie)){
+        $series = Series::where('url', $url)->first();
+        if(empty($series)){
             abort(404, 'Invalid URL');
         }
-        return view('movie_detail', compact('movie'));
+        return view('series_detail', compact('series'));
     }
     
 }

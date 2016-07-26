@@ -9,7 +9,7 @@
         <!-- including title -->
         <title>
         @section('title')
-            Movies
+        
         @show
         </title>
         

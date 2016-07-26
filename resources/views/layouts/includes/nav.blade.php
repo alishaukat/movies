@@ -14,12 +14,12 @@
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
-<!--                <li>
-                    <a href="#">About</a>
+                <li class="{{ Route::currentRouteNamed('series') ? 'active' : '' }}">
+                    <a href="{{route('series')}}">TV Shows</a>
                 </li>
-                <li>
-                    <a href="#">Contact</a>
-                </li>-->
+                <li class="{{ Route::currentRouteNamed('movies') ? 'active' : '' }}">
+                    <a href="{{route('movies')}}">Movies</a>
+                </li>
             </ul>
         </div>
         <!-- /.navbar-collapse -->

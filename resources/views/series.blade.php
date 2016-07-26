@@ -1,11 +1,11 @@
 @extends('layouts.master')
 
 @section('title')
-    Movies | All
+    Series | All
 @stop
 
 @section('content')
-@include('layouts.includes.header', array('heading'=>"Movies"))
+@include('layouts.includes.header', array('heading'=>"Series"))
 <!-- Search filters -->
 <div class="container">
     <div class="row">    
@@ -33,7 +33,7 @@
 	</div>
 </div>
 <div class="data-container">
-    {!! $movies_list !!}
+    {!! $series_list !!}
 </div>
 <div class="loading">&nbsp;</div>
 <hr>
@@ -84,7 +84,7 @@ function loadRecords(emptyList){
     if(emptyList){
         offset = 0;
     }
-    var url = '{{ route("movies.listing") }}';
+    var url = '{{ route("series.listing") }}';
     $.ajax({
         url: url,
         data:{
@@ -110,7 +110,7 @@ function loadRecords(emptyList){
                 }
                 if($.trim(data) === ""){
                     if(emptyList){
-                        $('.data-container').append("<div>No Movies Found</div>");
+                        $('.data-container').append("<div>No Series Found</div>");
                     }
                     window.fetchAgain = false;
                 }else{

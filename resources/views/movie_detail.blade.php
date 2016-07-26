@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
 @section('title')
-    @parent | {{ $movie->title }}
+    Movies | {{ $movie->title }}
 @stop
 
 @section('content')

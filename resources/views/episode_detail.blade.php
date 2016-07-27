@@ -11,6 +11,13 @@
         src="{{ $episode->video_url }}">
     </iframe>
 </div>
+@if(!empty($previous))
+<a href='{{ $previous->url }}'><button type="button" class="btn btn-primary">Previous</button></a>
+@endif
+@if(!empty($next))
+<a href='{{ $next->url }}'><button type="button" class="btn btn-primary pull-right">Next</button></a>
+@endif
+<div class="clearfix"></div>
 <hr>
 @endsection
 

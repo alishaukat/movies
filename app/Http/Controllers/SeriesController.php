@@ -111,6 +111,8 @@ class SeriesController extends Controller
         if(empty($episode)){
             abort(404, 'Invalid URL');
         }
-        return view('episode_detail', compact('episode'));
+        $next       = Episode::getNext($episode->number);
+        $previous   = Episode::getPrev($episode->number);
+        return view('episode_detail', compact('episode', 'next', 'previous'));
     }
 }

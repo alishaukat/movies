@@ -45,6 +45,20 @@ class Episode extends Model
     }
     
     /*
+     * Get next episode
+     */
+    public static function getNext($number){
+        return self::where('number', '>', $number)->orderBy('number', 'asc')->first();
+    }
+    
+    /*
+     * Get next episode
+     */
+    public static function getPrev($number){
+        return self::where('number', '<', $number)->orderBy('number', 'desc')->first();
+    }
+    
+    /*
      * set movie filters
      */
     private static function setFilters($filters){        

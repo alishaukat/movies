@@ -24,7 +24,7 @@ $total = count($series);
             <p>{{ str_limit($s->summary, 130) }}</p>
         </div>
         <a href="{{ route('series.show', $s->url) }}">
-            <img class="img-responsive" src="{{ $s->image_url }}" alt="Movie Image">
+            <img class="img-responsive" src="{{ $s->image_url }}" alt="Series Image">
         </a>
     </div>
 @if($index == 4 && $total != $counter)

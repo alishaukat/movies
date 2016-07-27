@@ -15,6 +15,7 @@ class CreateEpisodesTable extends Migration
         Schema::create('episodes', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('season_id')->unsigned();
+            $table->integer('number')->unsigned()->nullable();
             $table->string('title');
             $table->string('genre')->nullable();
             $table->decimal('rating',5,2)->nullable();

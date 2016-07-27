@@ -15,6 +15,14 @@ class Season extends Model
         return $this->hasMany(Episode::class);
     }
     
+    /**
+    * The series that belong to the season.
+    */
+    public function series()
+    {
+        return $this->belongsTo(Series::class);
+    }
+    
     /*
      * Number of season for a given filter
      */

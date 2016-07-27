@@ -21,6 +21,7 @@ class EpisodesTableSeeder extends Seeder
                 DB::table('episodes')->insert([
                     'season_id' => $s->id,
                     'title'     => $faker->name,
+                    'number'    => $i+1,
                     'genre'     => $genre[rand(0, 2)],
                     'rating'    => rand(1, 5),
                     'summary'   => $faker->text(rand(100, 1000)),

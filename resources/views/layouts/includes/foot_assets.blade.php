@@ -6,3 +6,11 @@
 
 <!-- Common JavaScript -->
 <script src="{{ asset('assets/js/common.js') }}"></script>
+
+<script>
+$(function(){
+    $('.back-btn').click(function(){
+        window.location = '{{ URL::previous()  }}';
+    });
+});
+</script>

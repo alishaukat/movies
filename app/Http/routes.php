@@ -24,6 +24,9 @@ Route::group(['prefix'=>'movies'],  function(){
 
 Route::group(['prefix'=>'series'],  function(){
     Route::get('/', ['as' => 'series', 'uses'=>'SeriesController@index']);
-    Route::get('/listing', ['as' => 'series.listing', 'uses'=>'SeriesController@listing']);
-    Route::get('/{url}', ['as' => 'series.show', 'uses'=>'SeriesController@show']);
+    Route::get('/series-listing', ['as' => 'series.listing', 'uses'=>'SeriesController@seriesListing']);
+    
+    Route::get('/{url}', ['as' => 'series.show', 'uses'=>'SeriesController@showSeries']);
+    Route::get('/seasons/{url}', ['as' => 'seasons.show', 'uses'=>'SeriesController@showSeason']);
+    Route::get('/episodes/{url}', ['as' => 'episodes.show', 'uses'=>'SeriesController@showEpisode']);
 });

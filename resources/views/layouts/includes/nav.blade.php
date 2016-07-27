@@ -14,10 +14,10 @@
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
-                <li class="{{ Route::currentRouteNamed('series') ? 'active' : '' }}">
+                <li class="{{ (request()->route()->getPrefix() == '/series') ? 'active' : '' }}">
                     <a href="{{route('series')}}">TV Shows</a>
                 </li>
-                <li class="{{ Route::currentRouteNamed('movies') ? 'active' : '' }}">
+                <li class="{{ (request()->route()->getPrefix() == '/movies') ? 'active' : '' }}">
                     <a href="{{route('movies')}}">Movies</a>
                 </li>
             </ul>
